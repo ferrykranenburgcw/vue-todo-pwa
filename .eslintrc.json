@@ -1,0 +1,82 @@
+{
+  "root": true,
+    "env": {
+  "browser": true,
+      "es6": true,
+      "node": true
+},
+  "parserOptions": {
+  "ecmaVersion": 2021
+},
+  "settings": {
+  "prettier-vue": {
+    // Settings for how to process Vue SFC Blocks
+    "SFCBlocks": {
+      // Prettier && Vue v2 && Eslin do not work nice together, so we turned this off!
+      "template": false,
+
+          /**
+           * Use prettier to process `<script>` blocks or not
+           */
+          "script": true,
+
+          /**
+           * Use prettier to process `<style>` blocks or not
+           */
+          "style": true
+    },
+
+    // Use prettierrc for prettier options or not (default: `true`)
+    "usePrettierrc": false
+  }
+},
+  "rules": {
+  // Override our default settings just for this directory
+  "eqeqeq": "off",
+      "strict": "off",
+      "prettier-vue/prettier": [
+    "warn",
+    {
+      "printWidth": 150,
+      "semi": false,
+      "singleQuote": true,
+      "quoteProps": "preserve",
+      "endOfLine": "auto",
+      "trailingComma": "none",
+      "jsxBracketSameLine": true,
+      "arrowParens": "avoid",
+      "htmlWhitespaceSensitivity": "css",
+      "vueIndentScriptAndStyle": true
+    }
+  ],
+      // Attributes on new lines
+      "vue/max-attributes-per-line": [
+    "error",
+    {
+      "singleline": {
+        "max": 3,
+        "allowFirstLine": true
+      },
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }
+  ],
+      // let us use @ts-ignore
+      "@typescript-eslint/ban-ts-ignore": "off",
+      // This is problematic in refactoring withing Intellij
+      "vue/attribute-hyphenation": 0,
+      // We use v-html
+      "vue/no-v-html": 0,
+      // Disable self-closing tags
+      "vue/html-self-closing": 0
+},
+
+  "extends": [
+  "plugin:vue/recommended",
+  "plugin:prettier-vue/recommended",
+  "prettier"
+]
+}
+
